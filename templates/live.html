@@ -2,10 +2,12 @@
 
 {% block content %}
 <div class="content">
-    <div><a class="btn btn-warning home" href="{{ url_for('index') }}">На главную</a></div>
-    <div class="counter">{{game.counter}}</div>
+    <div><a class="btn btn-warning home button1" href="{{ url_for('index') }}">На главную</a></div>
 
-    <div><a class="btn btn-info refresh" href="{{ url_for('live') }}">Создать новую жизнь</a></div>
+
+    <div><a class="btn btn-info refresh button1" href="{{ url_for('live') }}">Создать новую жизнь</a></div>
+    <br>
+    <div class="counter">{{game._counter}}</div>
     </div>
 
 {% block app_content %}

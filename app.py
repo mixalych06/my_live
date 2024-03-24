@@ -10,17 +10,23 @@ app = Flask(__name__)
 def index():
     GameOfLife(width=10, height=10)
 
+
     return render_template('index.html')
 
 
-@app.route('/live')
+@app.route('/live', methods=['get', 'post'])
 def live():
     game = GameOfLife()
-    if game.counter > 0:
+    if request.method == 'POST' and game._counter == 0:
+        width = int(request.form.get('width'))
+        height = int(request.form.get('height'))
+        game = GameOfLife(width=width, height=height)
+
+
+    if game._counter > 0:
         game.form_new_generation()
         print(game.__dict__)
-        print(game.counter)
-
+        print(game._counter)
     game.next_count()
     print()
     return render_template('live.html', game=game)
