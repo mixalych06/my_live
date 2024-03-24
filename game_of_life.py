@@ -21,12 +21,11 @@ class GameOfLife(metaclass=SingletonMeta):
         self.__height = height
 
         self.world = self.generate_universe()
-        self._counter = 0
+        self.counter = 0
         self.old_world = [0 for _ in range(self.__width) for _ in range(self.__height)]
 
 
     def form_new_generation(self):
-
         universe = self.world
         new_world = [[0 for _ in range(self.__width)] for _ in range(self.__height)]
 
@@ -51,7 +50,7 @@ class GameOfLife(metaclass=SingletonMeta):
         return [[random.randint(0, 1) for _ in range(self.__width)] for _ in range(self.__height)]
 
     def next_count(self):
-        self._counter += 1
+        self.counter += 1
 
     @staticmethod
     def __get_near(universe, pos, system=None):

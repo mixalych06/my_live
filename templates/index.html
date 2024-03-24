@@ -1,13 +1,7 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-<!--    <form action="{{ url_for('live') }}" method="post">-->
-<!--        <input name="width" value="15" placeholder="width"/>-->
-<!--        <input name="height" value="15" placeholder="height"/>-->
-<!--        <br>-->
-<!--        <label><button type="submit">Создать жизнь</button></label>-->
 
-<!--    </form>-->
     <form action="{{ url_for('live') }}" method="post">
       <div class="form-floating">
         <input name="width" value="15" class="form-control" id="floatingInput" placeholder="width" required>

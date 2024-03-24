@@ -17,16 +17,16 @@ def index():
 @app.route('/live', methods=['get', 'post'])
 def live():
     game = GameOfLife()
-    if request.method == 'POST' and game._counter == 0:
+    if request.method == 'POST' and game.counter == 0:
         width = int(request.form.get('width'))
         height = int(request.form.get('height'))
         game = GameOfLife(width=width, height=height)
 
 
-    if game._counter > 0:
+    if game.counter > 0:
         game.form_new_generation()
         print(game.__dict__)
-        print(game._counter)
+        print(game.counter)
     game.next_count()
     print()
     return render_template('live.html', game=game)
