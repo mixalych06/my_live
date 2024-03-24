@@ -19,11 +19,9 @@ class GameOfLife(metaclass=SingletonMeta):
     def __init__(self, width=20, height=20):
         self.__width = width
         self.__height = height
-
         self.world = self.generate_universe()
         self.counter = 0
         self.old_world = [0 for _ in range(self.__width) for _ in range(self.__height)]
-
 
     def form_new_generation(self):
         universe = self.world
